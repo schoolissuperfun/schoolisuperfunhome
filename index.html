@@ -6,7 +6,8 @@
     <title>schoolisuperfun.pages.dev</title>
     <style>
         body {
-            font-family: "Segoe UI", Tahoma, sans-serif;
+            /* Using the precise system font stack for Chrome */
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #fff;
             color: #3c4043;
             display: flex;
@@ -24,87 +25,89 @@
         }
 
         .icon {
-            /* Scaled down further to match the "smaller" look */
-            width: 34px; 
-            height: 44px;
+            /* Optimized size for 'nothere.png' to look like the browser default */
+            width: 32px; 
+            height: 42px;
             background-image: url('nothere.png');
             background-size: contain;
             background-repeat: no-repeat;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         h1 {
             font-size: 22px;
-            font-weight: 500;
-            margin-bottom: 18px;
+            font-weight: 400; /* Chrome's header is actually quite light */
+            margin-bottom: 15px;
             color: #202124;
         }
 
         .details-text {
             font-size: 14px;
-            line-height: 20px;
-            color: #5f6368;
-        }
-
-        .url {
-            font-weight: 700;
+            line-height: 22px;
             color: #3c4043;
         }
 
+        .url {
+            font-weight: 600;
+        }
+
         ul {
-            margin-top: 12px;
-            padding-left: 24px;
+            margin-top: 10px;
+            padding-left: 20px;
+            list-style-type: disc;
         }
 
         li {
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .error-code {
             font-size: 12px;
             color: #5f6368;
-            margin-top: 30px;
-            font-weight: 400;
+            margin-top: 25px;
         }
 
         .button-container {
-            margin-top: 45px;
+            margin-top: 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
 
-        .btn-games {
-            background: none;
-            border: 1px solid #dadce0;
-            border-radius: 4px;
-            padding: 8px 18px;
-            /* Changed from blue to dark grey to match "Details" button */
-            color: #3c4043; 
+        /* The Oval/Pill Shape Styling */
+        .btn-base {
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
+            padding: 8px 24px;
+            border-radius: 100px; /* This creates the oval shape */
+            transition: background-color 0.1s;
+            outline: none;
+            display: inline-block;
+        }
+
+        .btn-games {
+            background: #fff;
+            border: 1px solid #dadce0;
+            color: #5f6368; /* Exact grey from your screenshot */
         }
 
         .btn-games:hover {
-            background-color: #f8f9fa;
+            background-color: #f1f3f4;
             border-color: #d2d4d7;
         }
 
         .btn-reload {
             background-color: #1a73e8;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 24px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
+            color: #fff;
+            border: 1px solid transparent;
             box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
         }
 
         .btn-reload:hover {
             background-color: #185abc;
+            box-shadow: 0 1px 3px 1px rgba(60,64,67,0.15);
         }
     </style>
 </head>
@@ -116,7 +119,7 @@
         <h1>This site can’t be reached</h1>
         
         <div class="details-text">
-            <span class="url">schoolisuperfunhome.pages.dev</span>’s server IP address could not be found.
+            <span class="url">schoolisuperfun.pages.dev</span>’s server IP address could not be found.
             
             <p>Try:</p>
             <ul>
@@ -129,8 +132,8 @@
         <div class="error-code">ERR_NAME_NOT_RESOLVED</div>
 
         <div class="button-container">
-            <button class="btn-games" onclick="launch('Games', 'https://realhome.pages.dev')">Games</button>
-            <button class="btn-reload" onclick="location.reload()">Reload</button>
+            <button class="btn-base btn-games" onclick="launch('Games', 'https://realhome.pages.dev')">Games</button>
+            <button class="btn-base btn-reload" onclick="location.reload()">Reload</button>
         </div>
     </div>
 
