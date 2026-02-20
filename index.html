@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Not Found</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background-color: #fff;
+            color: #3c4043;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
+        }
+
+        /* Use your uploaded PNG here */
+        .icon {
+            width: 72px;
+            height: 72px;
+            background-image: url('your-uploaded-file-name.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .details-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .url {
+            font-weight: bold;
+            color: #202124;
+        }
+
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .error-code {
+            font-size: 0.75rem;
+            color: #5f6368;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+        .button-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Styled to look like the 'Details' button */
+        .btn-games {
+            background: none;
+            border: 1px solid #dadce0;
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: #5f6368;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-games:hover {
+            background-color: #f8f9fa;
+        }
+
+        .btn-reload {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 24px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+        }
+
+        .btn-reload:hover {
+            background-color: #185abc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon"></div>
+
+        <h1>This site can’t be reached</h1>
+        
+        <div class="details-text">
+            <span class="url">schoolisuperfun.pages.dev</span>’s server IP address could not be found.
+            
+            <p>Try:</p>
+            <ul>
+                <li>Checking the connection</li>
+                <li>Checking the proxy, firewall, and DNS configuration</li>
+                <li>Running Connectivity Diagnostics</li>
+            </ul>
+        </div>
+
+        <div class="error-code">ERR_NAME_NOT_RESOLVED</div>
+
+        <div class="button-container">
+            <button class="btn-games" onclick="launch('Games', 'https://realhome.pages.dev')">Games</button>
+            <button class="btn-reload" onclick="location.reload()">Reload</button>
+        </div>
+    </div>
+
+    <script>
+        function launch(name, url) {
+            const newTab = window.open('about:blank', '_blank');
+            if (!newTab) {
+                alert('Popup blocked! Please allow popups.');
+                return;
+            }
+
+            // Set the title of the new about:blank tab
+            newTab.document.title = name;
+
+            // Create an iframe to load the game site stealthily
+            const iframe = newTab.document.createElement('iframe');
+            iframe.src = url;
+            iframe.style.position = 'fixed';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            
+            newTab.document.body.appendChild(iframe);
+            newTab.document.body.style.margin = '0';
+        }
+    </script>
+
+</body>
+</html>
