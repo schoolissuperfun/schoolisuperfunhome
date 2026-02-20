@@ -6,12 +6,15 @@
     <title>schoolissuperfun.pages.dev</title>
     <style>
         body {
+            /* This font stack precisely matches Chrome's UI */
             font-family: "Segoe UI", Tahoma, sans-serif;
             background-color: #fff;
             color: #3c4043;
             display: flex;
             justify-content: center;
-            align-items: center;
+            /* Moves the content slightly up from dead center to match the screenshot */
+            align-items: flex-start;
+            padding-top: 15vh; 
             height: 100vh;
             margin: 0;
             overflow: hidden;
@@ -20,80 +23,82 @@
         .container {
             max-width: 600px;
             width: 90%;
-            padding: 20px;
         }
 
-        /* Use your uploaded PNG here */
         .icon {
-            width: 72px;
-            height: 72px;
+            /* Adjusted to match the specific "sad paper" dimensions */
+            width: 45px; 
+            height: 58px;
             background-image: url('nothere.png');
             background-size: contain;
             background-repeat: no-repeat;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         h1 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .details-text {
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .url {
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 500; /* Medium weight for that Google look */
+            margin-bottom: 18px;
             color: #202124;
         }
 
+        .details-text {
+            font-size: 14px;
+            line-height: 20px;
+            color: #5f6368;
+        }
+
+        .url {
+            font-weight: 700;
+            color: #3c4043;
+        }
+
         ul {
-            margin-top: 10px;
-            padding-left: 20px;
+            margin-top: 12px;
+            padding-left: 24px;
         }
 
         li {
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .error-code {
-            font-size: 0.75rem;
+            font-size: 12px;
             color: #5f6368;
-            margin-top: 25px;
-            text-transform: uppercase;
+            margin-top: 30px;
+            font-weight: 400;
         }
 
         .button-container {
-            margin-top: 40px;
+            margin-top: 45px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Styled to look like the 'Details' button */
         .btn-games {
             background: none;
             border: 1px solid #dadce0;
-            border-radius: 20px;
-            padding: 8px 16px;
-            color: #5f6368;
+            border-radius: 4px; /* Chrome buttons are actually slightly less rounded */
+            padding: 8px 18px;
+            color: #1a73e8; /* Text is usually blue on the secondary button */
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
+            font-size: 14px;
+            font-weight: 500;
         }
 
         .btn-games:hover {
             background-color: #f8f9fa;
+            border-color: #d2d4d7;
         }
 
         .btn-reload {
             background-color: #1a73e8;
             color: white;
             border: none;
-            border-radius: 20px;
+            border-radius: 4px;
             padding: 10px 24px;
+            font-size: 14px;
             font-weight: 500;
             cursor: pointer;
             box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
@@ -101,6 +106,7 @@
 
         .btn-reload:hover {
             background-color: #185abc;
+            box-shadow: 0 1px 3px 1px rgba(60,64,67,0.15);
         }
     </style>
 </head>
@@ -125,7 +131,7 @@
         <div class="error-code">ERR_NAME_NOT_RESOLVED</div>
 
         <div class="button-container">
-            <button class="btn-games" onclick="launch('Games', 'https://realhome.pages.dev')">Games</button>
+            <button class="btn-games" onclick="launch('Games', 'https://real-home.pages.dev')">Games</button>
             <button class="btn-reload" onclick="location.reload()">Reload</button>
         </div>
     </div>
@@ -138,10 +144,7 @@
                 return;
             }
 
-            // Set the title of the new about:blank tab
             newTab.document.title = name;
-
-            // Create an iframe to load the game site stealthily
             const iframe = newTab.document.createElement('iframe');
             iframe.src = url;
             iframe.style.position = 'fixed';
